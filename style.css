@@ -1,56 +1,59 @@
-/* style.css */
-
-/* Reset some default styles to ensure consistency */
-body, h1, h2, h3, p {
+/* 重置一些默认样式以确保一致性 */
+body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
 
-/* Apply styles to the body element */
+/* 对 body 元素应用样式 */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
-    line-height: 1.6;
 }
 
-/* Style headings */
-h1 {
-    font-size: 2rem;
-    color: #555;
-}
-
-h2 {
-    font-size: 1.5rem;
-    color: #444;
-}
-
-/* Style links */
-a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* Style navigation menu */
-nav ul {
-    list-style-type: none;
-}
-
-nav li {
-    display: inline;
-    margin-right: 20px;
-}
-
-/* Style the footer */
-footer {
+/* 头部样式 */
+header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
     text-align: center;
+}
+
+/* 容器样式 */
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* 个人信息 (左侧栏) 样式 */
+.personal-info {
+    flex: 1;
+    margin-right: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 博客文章 (右侧栏) 样式 */
+.blog-posts {
+    flex: 2;
+}
+
+/* 博文样式 */
+.blog-post {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 底部样式 */
+footer {
     background-color: #333;
     color: #fff;
+    text-align: center;
     padding: 10px 0;
 }
-
-/* Additional styles can be added as needed */
