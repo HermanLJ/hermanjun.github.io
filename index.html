@@ -12,7 +12,8 @@
     </header>
     
     <div class="container">
-        <aside class="personal-info">
+        <!-- First Column (Personal Info) -->
+        <div class="column personal-info">
             <!-- 个人详细信息 -->
             <h2>我的个人信息</h2>
             <p>四川人，处女座男生</p>
@@ -22,22 +23,62 @@
             <p>摇过试管，练过武，教过英语</p>
             <p>新西兰工作旅行一年</p>
             <p>目前是一名英联邦留学Alevel 化学老师</p>
-        </aside>
+        </div>
         
-        <main class="blog-posts">
-            <!-- 最新博文 -->
+        <!-- Second Column (Blog Posts) -->
+        <main class="column blog-posts">
+            <!-- Article 1 -->
             <article class="blog-post">
-                <h2>文章标题 1</h2>
-                <p>文章 1 摘要。Lorem ipsum dolor sit amet...</p>
+                <div class="article-content">
+                    <h2><a href="article1.html" id="article1-title">Loading...</a></h2>
+                    <!-- Content of your article goes here -->
+                    <div id="article1-content">
+                        <!-- The content will be loaded here -->
+                    </div>
+                </div>
                 <a href="article1.html">阅读更多</a>
             </article>
 
-            <!-- 按需添加更多文章 -->
+            <!-- Add more articles as needed -->
         </main>
     </div>
 
     <footer>
         <!-- 底部内容 -->
     </footer>
+
+    <!-- JavaScript code to load article content -->
+    <script>
+        // Function to load content from article1.html
+        function loadArticleContent() {
+            const articleTitle = document.getElementById("article1-title");
+            const articleContent = document.getElementById("article1-content");
+
+            // Fetch the content from article1.html
+            fetch("article1.html")
+                .then(response => response.text())
+                .then(content => {
+                    // Extract and set the title
+                    const titleMatch = content.match(/<title>(.*?)<\/title>/i);
+                    if (titleMatch && titleMatch[1]) {
+                        articleTitle.textContent = titleMatch[1];
+                    }
+
+                    // Extract and set the content (first 6 lines)
+                    const contentMatch = content.match(/<body>([\s\S]*?)<\/body>/i);
+                    if (contentMatch && contentMatch[1]) {
+                        const lines = contentMatch[1].split("\n").slice(0, 6);
+                        articleContent.innerHTML = lines.join("<br>");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error loading article content:", error);
+                    articleTitle.textContent = "Failed to load article";
+                });
+        }
+
+        // Load the article content when the page loads
+        window.addEventListener("load", loadArticleContent);
+    </script>
 </body>
 </html>
