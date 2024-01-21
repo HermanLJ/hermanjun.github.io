@@ -73,3 +73,17 @@ footer {
     padding: 10px;
     text-align: center;
 }
+
+/* Responsive Design for Mobile Devices */
+@media screen and (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .column.personal-info,
+    .column.blog-posts {
+        width: 100%; /* Full width on small screens */
+        float: none; /* Remove floating for mobile layout */
+    }
+}
+
