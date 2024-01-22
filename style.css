@@ -13,7 +13,7 @@ body {
 
 /* Style the header section */
 header {
-    background-color: #990000; /* Header background color */
+    background-color: #beb2a4; /* Header background color */
     color: #fff; /* Header text color */
     padding: 20px;
     text-align: center;
@@ -28,7 +28,7 @@ header {
 
 /* Style the first column (Personal Info) */
 .column.personal-info {
-    background-color: #f0f8ff; /* Pale blue background color */
+    background-color:  #ebe7dd; /* Pale blue background color */
     padding: 20px;
     width: 30%; /* Adjust the width as needed */
     box-sizing: border-box; /* Include padding in the width */
@@ -46,7 +46,7 @@ header {
 
 /* Style the blog post titles */
 .column.blog-posts .blog-post h2 {
-    color: #007bff; /* Blog post title color */
+    color: #322b1d; /* Blog post title color */
     margin-bottom: 10px;
 }
 
@@ -59,7 +59,7 @@ header {
 
 /* Style the "阅读更多" link */
 .column.blog-posts .blog-post a {
-    color: #007bff; /* Link color */
+    color: #322b1d; /* Link color */
     text-decoration: none; /* Remove underlines */
     font-weight: bold; /* Make the link bold */
     margin-top: 10px;
@@ -68,7 +68,7 @@ header {
 
 /* Style the footer section */
 footer {
-    background-color: #007bff; /* Footer background color */
+    background-color: #897351; /* Footer background color */
     color: #fff; /* Footer text color */
     padding: 10px;
     text-align: center;
