@@ -73,7 +73,9 @@
                 .then(content => {
                     const titleMatch = content.match(/<title>(.*?)<\/title>/i);
                     if (titleMatch && titleMatch[1]) {
-                        articleTitle.textContent = titleMatch[1];
+                        // Check if the title ends with ".md" and remove it
+                        let titleText = titleMatch[1].replace(/\.md$/, "");
+                        articleTitle.textContent = titleText;
                     }
 
                     const contentMatch = content.match(/<body>([\s\S]*?)<\/body>/i);
