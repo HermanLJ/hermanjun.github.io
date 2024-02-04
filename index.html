@@ -40,7 +40,16 @@
                 <a href="article1.html">阅读更多</a>
             </article>
 
-            <!-- Add more articles as needed -->
+            <!-- Article 2 -->
+            <article class="blog-post">
+                <div class="article-content">
+                    <h2><a href="article2.html" id="article2-title">Loading...</a></h2>
+                    <div id="article2-content">
+                        <!-- The content will be loaded here -->
+                    </div>
+                </div>
+                <a href="article2.html">阅读更多</a>
+            </article>
         </main>
     </div>
 
@@ -50,22 +59,23 @@
 
     <!-- JavaScript code to load article content -->
     <script>
-        // Function to load content from article1.html
-        function loadArticleContent() {
-            const articleTitle = document.getElementById("article1-title");
-            const articleContent = document.getElementById("article1-content");
+        function loadArticlesContent() {
+            loadArticleContent("article1.html", "article1-title", "article1-content");
+            loadArticleContent("article2.html", "article2-title", "article2-content");
+        }
 
-            // Fetch the content from article1.html
-            fetch("article1.html")
+        function loadArticleContent(articleFilename, titleElementId, contentElementId) {
+            const articleTitle = document.getElementById(titleElementId);
+            const articleContent = document.getElementById(contentElementId);
+
+            fetch(articleFilename)
                 .then(response => response.text())
                 .then(content => {
-                    // Extract and set the title
                     const titleMatch = content.match(/<title>(.*?)<\/title>/i);
                     if (titleMatch && titleMatch[1]) {
                         articleTitle.textContent = titleMatch[1];
                     }
 
-                    // Extract and set the content (first 6 lines)
                     const contentMatch = content.match(/<body>([\s\S]*?)<\/body>/i);
                     if (contentMatch && contentMatch[1]) {
                         const lines = contentMatch[1].split("\n").slice(0, 6);
@@ -73,13 +83,12 @@
                     }
                 })
                 .catch(error => {
-                    console.error("Error loading article content:", error);
+                    console.error(`Error loading content from ${articleFilename}:`, error);
                     articleTitle.textContent = "Failed to load article";
                 });
         }
 
-        // Load the article content when the page loads
-        window.addEventListener("load", loadArticleContent);
+        window.addEventListener("load", loadArticlesContent);
     </script>
 </body>
 </html>
